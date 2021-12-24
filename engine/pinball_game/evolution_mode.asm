@@ -333,7 +333,8 @@ SelectPokemonToEvolve: ; 0x10cb7
 	ld [hWY], a
 	dec a
 	ld [hLYC], a
-	ld a, $fd
+	;ld a, $fd
+	ld a, %10111111
 	ld [hLCDCMask], a
 	call SelectPokemonToEvolveMenu
 	ld a, $86
@@ -341,7 +342,8 @@ SelectPokemonToEvolve: ; 0x10cb7
 	ld a, $83
 	ld [hLYC], a
 	ld [hLastLYC], a
-	ld a, $ff
+	;ld a, $ff
+	ld a, %11111111
 	ld [hLCDCMask], a
 	ld a, [hGameBoyColorFlag]
 	and a

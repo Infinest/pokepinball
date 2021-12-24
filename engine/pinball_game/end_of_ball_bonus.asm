@@ -6,7 +6,8 @@ EndOfBallBonus: ; 0xf533
 	ld [hWY], a
 	dec a
 	ld [hLYC], a
-	ld a, $fd
+	;ld a, $fd
+	ld a, %10111111
 	ld [hLCDCMask], a
 	call ShowBallBonusSummary
 	ld a, $90
@@ -14,7 +15,8 @@ EndOfBallBonus: ; 0xf533
 	ld a, $83
 	ld [hLYC], a
 	ld [hLastLYC], a
-	ld a, $ff
+	;ld a, $ff
+	ld a, %11111111
 	ld [hLCDCMask], a
 	call FillBottomMessageBufferWithBlackTile
 	ret

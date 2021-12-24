@@ -97,7 +97,8 @@ Func_ca8f: ; 0xca8f
 	ret
 
 Func_cb14: ; 0xcb14
-	ld a, $43
+	;ld a, $43
+	ld a, %11000010
 	ld [hLCDC], a
 	ld a, $e0
 	ld [wBGP], a
@@ -116,7 +117,8 @@ Func_cb14: ; 0xcb14
 	ld [hNextLYCSub], a
 	ld [hLYCSub], a
 	ld hl, hSTAT
-	set 6, [hl]
+	;set 6, [hl]
+	set 1, [hl]
 	ld hl, rIE
 	set 1, [hl]
 	ld a, $3
@@ -143,7 +145,8 @@ Func_cb14: ; 0xcb14
 	and a
 	jr z, .asm_cb7f
 	ld hl, hLCDC
-	set 3, [hl]
+	;set 3, [hl]
+	set 4, [hl]
 .asm_cb7f
 	call SetAllPalettesWhite
 	ld a, [wda7f]
@@ -946,7 +949,8 @@ ExitHighScoresScreen: ; 0xd171
 	call FadeOut
 	call DisableLCD
 	ld hl, hSTAT
-	res 6, [hl]
+	;res 6, [hl]
+	res 1, [hl]
 	ld hl, rIE
 	res 1, [hl]
 	ld a, SCREEN_TITLESCREEN
@@ -1492,7 +1496,8 @@ Func_d4cf: ; 0xd4cf
 	ld a, $2
 	ld [hSCX], a
 	ld hl, hLCDC
-	set 5, [hl]
+	;set 5, [hl]
+	set 2, [hl]
 	ld b, $27
 .asm_d508
 	push bc
@@ -1517,8 +1522,10 @@ Func_d4cf: ; 0xd4cf
 	xor a
 	ld [hSCX], a
 	ld hl, hLCDC
-	res 5, [hl]
-	set 3, [hl]
+	;res 5, [hl]
+	res 2, [hl]
+	;set 3, [hl]
+	set 4, [hl]
 	ld a, $1
 	ld [wHighScoresStage], a
 	call Func_d5d0
@@ -1534,8 +1541,10 @@ Func_d4cf: ; 0xd4cf
 	ld a, $a0
 	ld [hSCX], a
 	ld hl, hLCDC
-	set 5, [hl]
-	res 3, [hl]
+	;set 5, [hl]
+	set 2, [hl]
+	;res 3, [hl]
+	res 4, [hl]
 	ld b, $27
 .asm_d551
 	push bc
@@ -1559,7 +1568,8 @@ Func_d4cf: ; 0xd4cf
 	xor a
 	ld [hSCX], a
 	ld hl, hLCDC
-	res 5, [hl]
+	;res 5, [hl]
+	res 2, [hl]
 	xor a
 	ld [wHighScoresStage], a
 	call Func_d5d0

@@ -140,7 +140,8 @@ FarSendSGBPacket_BGMapRows: ; 0x1353
 	add hl, de
 	dec c
 	jr nz, .row
-	ld a, $81
+	;ld a, $81
+	ld a, %10000001
 	ld [rLCDC], a
 	ld bc, $0005
 	call SGBWait1750

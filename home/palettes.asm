@@ -425,7 +425,8 @@ LoadCurrentPalettesIntoFadePalettes: ; 0xd9d
 	call Func_61b
 .asm_da7
 	ld a, [rSTAT]
-	and $3
+	;and $3
+	and %11000000
 	jr nz, .asm_da7  ; wait for lcd controller to finish transferring data
 	ld a, b
 	ld [de], a

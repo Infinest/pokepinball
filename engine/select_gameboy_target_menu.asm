@@ -28,7 +28,8 @@ InitSelectGameboyTargetMenu: ; 0x800a
 	ret
 
 .showMenu
-	ld a, $45
+	;ld a, $45
+	ld a, %10100010
 	ld [hLCDC], a
 	ld a, $e4
 	ld [wBGP], a

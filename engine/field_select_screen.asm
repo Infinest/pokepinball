@@ -7,7 +7,8 @@ FieldSelectScreenFunctions: ; 0xd6d7
 	dw ExitFieldSelectScreen
 
 LoadFieldSelectScreen: ; 0xd6dd
-	ld a, $43
+	;ld a, $43
+	ld a, %11000010
 	ld [hLCDC], a
 	ld a, $e4
 	ld [wBGP], a

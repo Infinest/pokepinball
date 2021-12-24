@@ -65,7 +65,8 @@ Func_19033: ; 0x19033
 	call Func_19070
 	jr nc, .asm_19042
 	ld a, [rLCDC]
-	bit 7, a
+	;bit 7, a
+	bit 0, a
 	jr z, .asm_19036
 	ret
 
@@ -161,7 +162,8 @@ Func_190c6: ; 0x190c6
 	call Func_19104
 	jr nc, .asm_190d5
 	ld a, [rLCDC]
-	bit 7, a
+	;bit 7, a
+	bit 0, a
 	jr z, .asm_190c9
 	ret
 
@@ -270,7 +272,8 @@ Func_1918c: ; 0x1918c
 	call Func_191cb
 	jr nc, .asm_1919b
 	ld a, [rLCDC]
-	bit 7, a
+	;bit 7, a
+	bit 0, a
 	jr z, .asm_1918f
 	ret
 

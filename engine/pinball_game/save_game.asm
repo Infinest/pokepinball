@@ -9,7 +9,8 @@ SaveGame: ; 0xda05
 	call nz, ToggleAudioEngineUpdateMethod
 	call DisableLCD
 	ld hl, hSTAT
-	res 6, [hl]
+	;res 6, [hl]
+	res 1, [hl]
 	ld hl, rIE
 	res 1, [hl]
 	xor a

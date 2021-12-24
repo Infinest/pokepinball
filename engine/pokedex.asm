@@ -9,7 +9,8 @@ PointerTable_28004: ; 0x28004
 	dw ExitPokedexScreen
 
 LoadPokedexScreen: ; 0x2800e
-	ld a, $23
+	;ld a, $23
+	ld a, %11000100
 	ld [hLCDC], a
 	ld a, $e4
 	ld [wBGP], a
@@ -31,7 +32,8 @@ LoadPokedexScreen: ; 0x2800e
 	ld [hNextLYCSub], a
 	ld [hLYCSub], a
 	ld hl, hSTAT
-	set 6, [hl]
+	;set 6, [hl]
+	set 1, [hl]
 	ld hl, rIE
 	set 1, [hl]
 	ld a, $2
@@ -713,7 +715,8 @@ ExitPokedexScreen: ; 0x284f9
 	call FadeOut
 	call DisableLCD
 	ld hl, hSTAT
-	res 6, [hl]
+	;res 6, [hl]
+	res 1, [hl]
 	ld hl, rIE
 	res 1, [hl]
 	ld a, SCREEN_TITLESCREEN
@@ -1549,7 +1552,8 @@ Func_28a15: ; 0x28a15
 	inc de
 	hlCoord 16, 7, vBGMap
 	ld a, [rLCDC]
-	bit 7, a
+	;bit 7, a
+	bit 0, a
 	jr nz, .asm_28a7a
 	ld a, [de]
 	ld [hl], a
@@ -2043,7 +2047,8 @@ Func_28d71: ; 0x28d71
 Func_28d88: ; 0x28d88
 	push af
 	ld a, [rLCDC]
-	bit 7, a
+	;bit 7, a
+	bit 0, a
 	jr nz, .asm_28d92
 	pop af
 	ld [hl], a

@@ -21,7 +21,8 @@ GameScreenFunction_LoadGFX: ; 0xd861
 	ret
 
 GameScreenFunction_StartBall: ; 0xd87f
-	ld a, $67
+	;ld a, $67
+	ld a, %11100110
 	ld [hLCDC], a
 	ld a, $e4
 	ld [wBGP], a
@@ -38,10 +39,12 @@ GameScreenFunction_StartBall: ; 0xd87f
 	ld a, $83
 	ld [hLYC], a
 	ld [hLastLYC], a
-	ld a, $ff
+	;ld a, $ff
+	ld a, %11111111
 	ld [hLCDCMask], a
 	ld hl, hSTAT
-	set 6, [hl]
+	;set 6, [hl]
+	set 1, [hl]
 	ld hl, rIE
 	set 1, [hl]
 	ld a, $1
@@ -241,7 +244,8 @@ GameScreenFunction_EndBall: ; 0xdab2
 	call z, ToggleAudioEngineUpdateMethod
 	call DisableLCD
 	ld hl, hSTAT
-	res 6, [hl]
+	;res 6, [hl]
+	res 1, [hl]
 	ld hl, rIE
 	res 1, [hl]
 	ld a, $1
@@ -259,7 +263,8 @@ GameScreenFunction_EndBall: ; 0xdab2
 	call nz, ToggleAudioEngineUpdateMethod
 	call DisableLCD
 	ld hl, hSTAT
-	res 6, [hl]
+	;res 6, [hl]
+	res 1, [hl]
 	ld hl, rIE
 	res 1, [hl]
 	ld a, [wCurrentStage]
@@ -286,7 +291,8 @@ GameScreenFunction_EndBall: ; 0xdab2
 	call nz, ToggleAudioEngineUpdateMethod
 	call DisableLCD
 	ld hl, hSTAT
-	res 6, [hl]
+	;res 6, [hl]
+	res 1, [hl]
 	ld hl, rIE
 	res 1, [hl]
 	ld a, [wCurrentStageBackup]
@@ -307,7 +313,8 @@ TransitionToHighScoresScreen: ; 0xdb5d
 	call FadeOut
 	call DisableLCD
 	ld hl, hSTAT
-	res 6, [hl]
+	;res 6, [hl]
+	res 1, [hl]
 	ld hl, rIE
 	res 1, [hl]
 	xor a

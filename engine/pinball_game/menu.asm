@@ -37,7 +37,8 @@ HandleInGameMenu: ; 0x86d7
 	ld [hWY], a
 	dec a
 	ld [hLYC], a
-	ld a, $fd
+	;ld a, $fd
+	ld a, %10111111
 	ld [hLCDCMask], a
 	call HandleInGameMenuSelection
 	ld a, [wInGameMenuIndex]
@@ -60,7 +61,8 @@ HandleInGameMenu: ; 0x86d7
 	ld a, $83
 	ld [hLYC], a
 	ld [hLastLYC], a
-	ld a, $ff
+	;ld a, $ff
+	ld a, %11111111
 	ld [hLCDCMask], a
 	ld a, [hGameBoyColorFlag]
 	and a

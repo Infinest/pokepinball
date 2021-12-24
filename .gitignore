@@ -8,6 +8,7 @@
 *.exe
 
 # roms
+*.pocket
 *.gbc
 *.gb
 

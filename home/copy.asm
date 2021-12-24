@@ -12,7 +12,8 @@ Func_61b: ; 0x61b
 	jr nc, .asm_625
 .asm_62f
 	ld a, [rSTAT]
-	and $3
+	;and $3
+	and %11000000
 	jr nz, .asm_62f  ; wait for lcd controller to finish transferring data
 	ld a, $15
 .wait
@@ -251,7 +252,8 @@ FarCopyCGBPals: ; 0x6fd
 LoadOrCopyVRAMData: ; 0x735
 	push hl
 	ld hl, rLCDC
-	bit 7, [hl]
+	;bit 7, [hl]
+	bit 0, [hl]
 	pop hl
 	jp z, FarCopyData
 	; fall through
@@ -282,7 +284,8 @@ LoadVRAMData: ; 0x73f
 	call Func_61b
 .waitForHBlank
 	ld a, [rSTAT]
-	and $3
+	;and $3
+	and %11000000
 	jr nz, .waitForHBlank
 	ld a, [hli]
 	ld [de], a
@@ -329,7 +332,8 @@ LoadVRAMData: ; 0x73f
 FarCopyPalettes: ; 0x790
 	push hl
 	ld hl, rLCDC
-	bit 7, [hl]
+	;bit 7, [hl]
+	bit 0, [hl]
 	pop hl
 	jp nz, Func_7dc
 	bit 7, h
@@ -417,7 +421,8 @@ Func_7dc: ; 0x7dc
 	call Func_61b
 .asm_811
 	ld a, [rSTAT]
-	and $3
+	;and $3
+	and %11000000
 	jr nz, .asm_811
 	ld a, [hli]
 	ld [de], a
@@ -474,7 +479,8 @@ PutTileInVRAM: ; 0x848
 	call Func_61b
 .asm_84f
 	ld a, [rSTAT]
-	and $3
+	;and $3
+	and %11000000
 	jr nz, .asm_84f  ; wait for lcd controller to finish transferring data
 	pop af
 	ld [hl], a  ; Store tile number in VRAM background map
@@ -486,7 +492,8 @@ Func_858: ; 0x858
 	call Func_61b
 .asm_85f
 	ld a, [rSTAT]
-	and $3
+	;and $3
+	and %11000000
 	jr nz, .asm_85f
 	ld a, $1
 	ld [rVBK], a
@@ -505,7 +512,8 @@ LoadBillboardPaletteMap: ; 0x86f
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	ld a, [rLCDC]
-	bit 7, a
+	;bit 7, a
+	bit 0, a
 	jr nz, .asm_8ac
 	ld a, $1
 	ld [rVBK], a
@@ -587,7 +595,8 @@ Func_8e1: ; 0x8e1
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	ld a, [rLCDC]
-	bit 7, a
+	;bit 7, a
+	bit 0, a
 	jr nz, .asm_902
 	ld a, c
 	ld [hli], a

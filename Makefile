@@ -5,7 +5,7 @@
 .PRECIOUS:
 .SECONDARY:
 
-ROM := pokepinball.gbc
+ROM := pokepinball.pocket
 OBJS := main.o wram.o sram.o
 
 MD5 := md5sum -c
@@ -21,8 +21,8 @@ endif
 	rgbasm -h -o $@ $<
 
 $(ROM): $(OBJS) contents/contents.link
-	rgblink -n $(ROM:.gbc=.sym) -m $(ROM:.gbc=.map) -l contents/contents.link -o $@ $(OBJS)
-	rgbfix -jsvc -k 01 -l 0x33 -m 0x1e -p 0 -r 02 -t "POKEPINBALL" -i VPHE $@
+	rgblink -n $(ROM:.pocket=.sym) -m $(ROM:.pocket=.map) -l contents/contents.link -o $@ $(OBJS)
+	rgbfix -jsc -f hg -k 01 -l 0x33 -m 0x1e -p 0 -r 02 -t "POKEPINBALL" -i VPHE $@
 
 # For contributors to make sure a change didn't affect the contents of the rom.
 compare: $(ROM)
@@ -32,7 +32,7 @@ tools:
 	$(MAKE) -C tools
 
 tidy:
-	rm -f $(ROM) $(OBJS) $(ROM:.gbc=.sym) $(ROM:.gbc=.map)
+	rm -f $(ROM) $(OBJS) $(ROM:.pocket=.sym) $(ROM:.pocket=.map)
 	$(MAKE) -C tools clean
 
 clean: tidy

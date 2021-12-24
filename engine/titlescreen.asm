@@ -9,7 +9,8 @@ TitlescreenFunctions: ; 0xc004
 	dw GoToHighScoresFromTitlescreen ; go to high scores
 
 FadeInTitlescreen: ; 0xc00e
-	ld a, $43
+	;ld a, $43
+	ld a, %11000010
 	ld [hLCDC], a
 	ld a, $e4
 	ld [wBGP], a

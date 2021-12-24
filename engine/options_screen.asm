@@ -10,7 +10,8 @@ OptionsScreenFunctions: ; 0xc34e
 	dw Func_c691
 
 Func_c35a: ; 0xc35a
-	ld a, $47
+	;ld a, $47
+	ld a, %11100010
 	ld [hLCDC], a
 	ld a, $e4
 	ld [wBGP], a
@@ -132,7 +133,8 @@ Func_c447: ; 0xc447
 	jr nz, .asm_c477
 	call ClearOAMBuffer
 	ld hl, hLCDC
-	set 3, [hl]
+	;set 3, [hl]
+	set 4, [hl]
 	ld a, $4
 	ld [wScreenState], a
 	ret
@@ -227,7 +229,8 @@ Func_c506: ; 0xc506
 	call PlaySoundEffect
 	call ClearOAMBuffer
 	ld hl, hLCDC
-	res 3, [hl]
+	;res 3, [hl]
+	res 4, [hl]
 	ld hl, wKeyConfigBallStart
 	ld de, sKeyConfigs
 	ld bc, $000e

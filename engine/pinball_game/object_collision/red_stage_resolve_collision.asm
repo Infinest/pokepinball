@@ -1476,7 +1476,8 @@ LoadFieldStructureGraphics_RedField: ; 0x159f4
 ; Based on the current stage collision state, load the proper graphics.
 ; Things that change on the Red field are Ditto, the lightning bolt guard rail, and the roof over the 3 Voltorbs.
 	ld a, [hLCDC]
-	bit 7, a
+	;bit 7, a
+	bit 0, a
 	jr z, .asm_15a13
 	ld a, [wd7f2]
 	and $fe

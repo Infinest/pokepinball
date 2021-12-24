@@ -15,7 +15,8 @@ CheckForResetButtonCombo: ; 0x8167
 	ret
 
 .heldCorrectButtons
-	ld a, $41
+	;ld a, $41
+	ld a, %10000010
 	ld [hLCDC], a
 	ld a, $e4
 	ld [wBGP], a
